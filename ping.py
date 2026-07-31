@@ -1,6 +1,6 @@
 import subprocess
 import socket
-test
+
 subnet = "192.168.1."
 
 print("Starting upgraded network sweep...")
