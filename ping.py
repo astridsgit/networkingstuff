@@ -6,10 +6,9 @@ subnet = "192.168.1."
 print("Starting upgraded network sweep...")
 
 
-for i in range(1, 51):
+for i in range(1, 255):
     ip_address = subnet + str(i)
-    response = subprocess.call(
-        ['ping', '-c', '1', '-W', '1', ip_address],
+    response = subprocess.call(['ping', '-c', '1', '-W', '1', ip_address],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL
     )
@@ -30,4 +29,4 @@ for i in range(1, 51):
         if 'lladdr' in output_words:
             mac_index = output_words.index('lladdr') + 1
             mac_address = output_words[mac_index]
-        print(f"[+] IP: {ip_address} | Name: {hostname} | MAC: {mac_address}")
+        print(f"IP: {ip_address} | Name: {hostname} | MAC: {mac_address}")
